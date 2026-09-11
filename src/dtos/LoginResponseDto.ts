@@ -1,6 +1,6 @@
 import type { UserRole } from '../entities/User.js';
 
-export interface LoginResponseDTO {
+export interface LoginResponseDto {
   token: string;
   user: {
     id: string;
