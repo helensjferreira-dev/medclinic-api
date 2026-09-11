@@ -1,6 +1,7 @@
 import 'reflect-metadata';
 import { DataSource } from 'typeorm';
 import dotenv from 'dotenv';
+import { User } from '../entities/User.js';
 
 dotenv.config();
 
@@ -17,6 +18,6 @@ export const AppDataSource = new DataSource({
     ssl: isSSLRequired ? { rejectUnauthorized: false } : false,
     synchronize: true,
     logging: false,
-    entities: [],
-    migrations: [] // PRENCHER APÓS
+    entities: [User],
+    migrations: [] 
 })
