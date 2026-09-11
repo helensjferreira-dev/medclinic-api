@@ -6,6 +6,7 @@ import type { LoginResponseDto } from '../dtos/LoginResponseDto.js';
 import { AppError } from '../errors/AppError.js';
 import { hashPassword, comparePassword } from '../utils/password.js';
 import { generateToken } from '../utils/jwt.js';
+import type { UserProfileResponseDto } from '../dtos/UserProfileResponseDto.js';
 
 export class UserService {
     constructor(private repo: typeof UserRepository) {}
@@ -47,5 +48,13 @@ export class UserService {
         };
     
 
+}
+async getUserProfile(id: string): Promise<UserProfileResponseDto> {
+    const user = await this.repo.findOne({where: {id}});
+    if (!user) {
+        throw new AppError('Usuário não encontrado', 404);
+    }
+    const { password, ...userWithoutPassword } = user;
+    return userWithoutPassword;
 }
 }
