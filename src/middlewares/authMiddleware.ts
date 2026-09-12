@@ -14,17 +14,17 @@ declare global {
 export function authMiddleware(req: Request, res: Response, next: NextFunction) {
     const authHeader = req.headers.authorization;
     if (!authHeader) {
-        throw new AppError('Token não informado', 401);
+        return next(new AppError('Token não informado', 401));
 }
     const [scheme, token] = authHeader.split(' ');
     if (scheme !== 'Bearer' || !token) {
-        throw new AppError('Token inválido', 401);
+        return next(new AppError('Token inválido', 401));
     }
     try {
     const payload = verifyToken(token);
     req.user = payload;
-    next();
+    return next();
     } catch (err) {
-    throw new AppError('Token inválido ou expirado', 401);
+    return next(new AppError('Token inválido ou expirado', 401));
 }
 }
