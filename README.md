@@ -1,6 +1,6 @@
 # 🏥 MedClinic API
 
-API REST moderna para gestão de segurança, a#utenticação e controle de #acesso baseado em perfis (RBAC) da clínica médica **MedClinic**. Projeto desenvolvido em **Node.js** com **TypeScript 6** e **TypeORM**, conectado de forma segura a uma base de dados **PostgreSQL na nuvem (Aiven)**.
+API REST moderna para gestão de segurança, autenticação e controle de acesso baseado em perfis (RBAC) da clínica médica **MedClinic**. Projeto desenvolvido em **Node.js** com **TypeScript 6** e **TypeORM**, conectado de forma segura a uma base de dados **PostgreSQL na nuvem (Aiven)**.
 
 ## 🚀 Tecnologias Utilizadas
 - **Node.js** (Ambiente de execução)
